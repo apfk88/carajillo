@@ -1,448 +1,527 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carajillo – Such a Great Drink</title>
-  <meta name="description" content="Carajillos are a great drink. Learn how to make the perfect carajillo with espresso and Licor 43.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-cream: #F5F0E8;
-      --color-espresso: #1A1612;
-      --color-caramel: #C4883A;
-      --color-amber: #E8A84C;
-      --color-warm-brown: #3D2E24;
-      --color-soft-gold: #D4A853;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'DM Sans', system-ui, sans-serif;
-    }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Carajillo – Such a Great Drink</title>
+        <meta
+            name="description"
+            content="Carajillos are a great drink. Learn how to make the perfect carajillo with espresso and Licor 43."
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --color-cream: #f5f0e8;
+                --color-espresso: #1a1612;
+                --color-caramel: #c4883a;
+                --color-amber: #e8a84c;
+                --color-warm-brown: #3d2e24;
+                --color-soft-gold: #d4a853;
+                --font-serif: "Cormorant Garamond", Georgia, serif;
+                --font-sans: "DM Sans", system-ui, sans-serif;
+            }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-    html {
-      scroll-behavior: smooth;
-    }
+            html {
+                scroll-behavior: smooth;
+            }
 
-    body {
-      font-family: var(--font-sans);
-      background: var(--color-espresso);
-      color: var(--color-cream);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+            body {
+                font-family: var(--font-sans);
+                background: var(--color-espresso);
+                color: var(--color-cream);
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
 
-    /* Ambient background */
-    .bg-pattern {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      background: 
-        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(196, 136, 58, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(212, 168, 83, 0.05) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 30% at 50% 90%, rgba(232, 168, 76, 0.04) 0%, transparent 50%);
-    }
+            /* Ambient background */
+            .bg-pattern {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 0;
+                background:
+                    radial-gradient(
+                        ellipse 80% 50% at 20% 40%,
+                        rgba(196, 136, 58, 0.06) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        ellipse 60% 40% at 80% 60%,
+                        rgba(212, 168, 83, 0.05) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        ellipse 50% 30% at 50% 90%,
+                        rgba(232, 168, 76, 0.04) 0%,
+                        transparent 50%
+                    );
+            }
 
-    /* ========================================
+            /* ========================================
        HERO SECTION
     ======================================== */
-    .hero {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 32px 80px;
-    }
+            .hero {
+                position: relative;
+                z-index: 1;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 100px 32px 80px;
+            }
 
-    .hero-image {
-      width: 100%;
-      max-width: 360px;
-      margin-bottom: 48px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 
-        0 40px 80px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(196, 136, 58, 0.15);
-      animation: fadeUp 0.8s ease-out;
-    }
+            .hero-image {
+                width: 100%;
+                max-width: 360px;
+                margin-bottom: 48px;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow:
+                    0 40px 80px rgba(0, 0, 0, 0.5),
+                    0 0 0 1px rgba(196, 136, 58, 0.15);
+                animation: fadeUp 0.8s ease-out;
+            }
 
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
 
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 500;
-      color: var(--color-cream);
-      margin-bottom: 32px;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      animation: fadeUp 0.8s ease-out 0.1s both;
-    }
+            .hero h1 {
+                font-family: var(--font-serif);
+                font-size: clamp(2.5rem, 8vw, 5rem);
+                font-weight: 500;
+                color: var(--color-cream);
+                margin-bottom: 32px;
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+                animation: fadeUp 0.8s ease-out 0.1s both;
+            }
 
-    .hero h1 span {
-      color: var(--color-caramel);
-      font-style: italic;
-    }
+            .hero h1 span {
+                color: var(--color-caramel);
+                font-style: italic;
+            }
 
-    .poem {
-      font-family: var(--font-serif);
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      font-style: italic;
-      color: rgba(245, 240, 232, 0.75);
-      max-width: 480px;
-      line-height: 2;
-      animation: fadeUp 0.8s ease-out 0.2s both;
-    }
+            .poem {
+                font-family: var(--font-serif);
+                font-size: clamp(1.05rem, 2vw, 1.25rem);
+                font-style: italic;
+                color: rgba(245, 240, 232, 0.75);
+                max-width: 480px;
+                line-height: 2;
+                animation: fadeUp 0.8s ease-out 0.2s both;
+            }
 
-    .scroll-hint {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: fadeUp 0.8s ease-out 0.4s both, bounce 2.5s ease-in-out 1.5s infinite;
-    }
+            .scroll-hint {
+                position: absolute;
+                bottom: 32px;
+                left: 50%;
+                transform: translateX(-50%);
+                animation:
+                    fadeUp 0.8s ease-out 0.4s both,
+                    bounce 2.5s ease-in-out 1.5s infinite;
+            }
 
-    .scroll-hint svg {
-      width: 28px;
-      height: 28px;
-      stroke: var(--color-caramel);
-      opacity: 0.5;
-    }
+            .scroll-hint svg {
+                width: 28px;
+                height: 28px;
+                stroke: var(--color-caramel);
+                opacity: 0.5;
+            }
 
-    /* ========================================
+            /* ========================================
        CONTENT SECTIONS
     ======================================== */
-    .content-section {
-      position: relative;
-      z-index: 1;
-      padding: 100px 32px;
-      border-top: 1px solid rgba(196, 136, 58, 0.1);
-    }
+            .content-section {
+                position: relative;
+                z-index: 1;
+                padding: 100px 32px;
+                border-top: 1px solid rgba(196, 136, 58, 0.1);
+            }
 
-    .content-section:nth-child(odd) {
-      background: rgba(61, 46, 36, 0.2);
-    }
+            .content-section:nth-child(odd) {
+                background: rgba(61, 46, 36, 0.2);
+            }
 
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
+            .section-inner {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+                align-items: center;
+            }
 
-    .section-inner.reverse {
-      direction: rtl;
-    }
+            .section-inner.reverse {
+                direction: rtl;
+            }
 
-    .section-inner.reverse > * {
-      direction: ltr;
-    }
+            .section-inner.reverse > * {
+                direction: ltr;
+            }
 
-    .section-image {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 
-        0 24px 48px rgba(0, 0, 0, 0.35),
-        0 0 0 1px rgba(196, 136, 58, 0.1);
-    }
+            .section-image {
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow:
+                    0 24px 48px rgba(0, 0, 0, 0.35),
+                    0 0 0 1px rgba(196, 136, 58, 0.1);
+            }
 
-    .section-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+            .section-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
 
-    .section-image.cropped {
-      max-height: 360px;
-    }
+            .section-image.cropped {
+                max-height: 360px;
+            }
 
-    .section-image.cropped img {
-      height: 100%;
-      object-fit: cover;
-      object-position: center 70%;
-    }
+            .section-image.cropped img {
+                height: 100%;
+                object-fit: cover;
+                object-position: center 70%;
+            }
 
-    .section-text {
-      padding: 16px 0;
-    }
+            .section-text {
+                padding: 16px 0;
+            }
 
-    .section-text h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 500;
-      color: var(--color-cream);
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
+            .section-text h2 {
+                font-family: var(--font-serif);
+                font-size: clamp(1.75rem, 4vw, 2.5rem);
+                font-weight: 500;
+                color: var(--color-cream);
+                margin-bottom: 20px;
+                letter-spacing: -0.01em;
+                line-height: 1.2;
+            }
 
-    .section-text p {
-      font-family: var(--font-serif);
-      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-      color: rgba(245, 240, 232, 0.8);
-      line-height: 1.8;
-    }
+            .section-text p {
+                font-family: var(--font-serif);
+                font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+                color: rgba(245, 240, 232, 0.8);
+                line-height: 1.8;
+            }
 
-    /* Recipe styling */
-    .recipe {
-      margin-top: 24px;
-      padding: 24px 28px;
-      background: linear-gradient(135deg, rgba(196, 136, 58, 0.12) 0%, rgba(61, 46, 36, 0.3) 100%);
-      border: 1px solid rgba(196, 136, 58, 0.2);
-      border-radius: 12px;
-    }
+            /* Recipe styling */
+            .recipe {
+                margin-top: 24px;
+                padding: 24px 28px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(196, 136, 58, 0.12) 0%,
+                    rgba(61, 46, 36, 0.3) 100%
+                );
+                border: 1px solid rgba(196, 136, 58, 0.2);
+                border-radius: 12px;
+            }
 
-    .recipe p {
-      font-family: var(--font-serif);
-      font-size: clamp(1rem, 1.3vw, 1.1rem);
-      line-height: 1.9;
-    }
+            .recipe p {
+                font-family: var(--font-serif);
+                font-size: clamp(1rem, 1.3vw, 1.1rem);
+                line-height: 1.9;
+            }
 
-    .recipe strong {
-      color: var(--color-amber);
-      font-weight: 600;
-    }
+            .recipe strong {
+                color: var(--color-amber);
+                font-weight: 600;
+            }
 
-    /* ========================================
+            /* ========================================
        CTA SECTION
     ======================================== */
-    .cta-section {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 140px 32px;
-      background: linear-gradient(180deg, rgba(61, 46, 36, 0.4) 0%, var(--color-warm-brown) 100%);
-      border-top: 1px solid rgba(196, 136, 58, 0.1);
-    }
+            .cta-section {
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                padding: 140px 32px;
+                background: linear-gradient(
+                    180deg,
+                    rgba(61, 46, 36, 0.4) 0%,
+                    var(--color-warm-brown) 100%
+                );
+                border-top: 1px solid rgba(196, 136, 58, 0.1);
+            }
 
-    .cta-section h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 500;
-      font-style: italic;
-      color: var(--color-cream);
-      letter-spacing: -0.01em;
-    }
+            .cta-section h2 {
+                font-family: var(--font-serif);
+                font-size: clamp(2rem, 5vw, 3.5rem);
+                font-weight: 500;
+                font-style: italic;
+                color: var(--color-cream);
+                letter-spacing: -0.01em;
+            }
 
-    .cta-section h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: var(--color-caramel);
-      margin: 28px auto 0;
-      opacity: 0.6;
-    }
+            .cta-section h2::after {
+                content: "";
+                display: block;
+                width: 60px;
+                height: 2px;
+                background: var(--color-caramel);
+                margin: 28px auto 0;
+                opacity: 0.6;
+            }
 
-    /* ========================================
+            /* ========================================
        FOOTER
     ======================================== */
-    footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 32px 24px;
-      background: var(--color-warm-brown);
-      border-top: 1px solid rgba(196, 136, 58, 0.08);
-    }
+            footer {
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                padding: 32px 24px;
+                background: var(--color-warm-brown);
+                border-top: 1px solid rgba(196, 136, 58, 0.08);
+            }
 
-    footer p {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      color: rgba(245, 240, 232, 0.4);
-      letter-spacing: 0.02em;
-    }
+            footer p {
+                font-family: var(--font-sans);
+                font-size: 0.8rem;
+                color: rgba(245, 240, 232, 0.4);
+                letter-spacing: 0.02em;
+            }
 
-    /* ========================================
+            /* ========================================
        ANIMATIONS
     ======================================== */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+            @keyframes fadeUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
 
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(6px);
-      }
-    }
+            @keyframes bounce {
+                0%,
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
+                50% {
+                    transform: translateX(-50%) translateY(6px);
+                }
+            }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
+            .fade-in {
+                opacity: 0;
+                transform: translateY(32px);
+                transition:
+                    opacity 0.7s ease-out,
+                    transform 0.7s ease-out;
+            }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-    /* ========================================
+            /* ========================================
        RESPONSIVE
     ======================================== */
-    @media (max-width: 800px) {
-      .hero {
-        padding: 80px 24px 60px;
-        min-height: auto;
-        padding-bottom: 100px;
-      }
+            @media (max-width: 800px) {
+                .hero {
+                    padding: 80px 24px 60px;
+                    min-height: auto;
+                    padding-bottom: 100px;
+                }
 
-      .hero-image {
-        max-width: 280px;
-        margin-bottom: 36px;
-      }
+                .hero-image {
+                    max-width: 280px;
+                    margin-bottom: 36px;
+                }
 
-      .content-section {
-        padding: 72px 24px;
-      }
+                .content-section {
+                    padding: 72px 24px;
+                }
 
-      .section-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        max-width: 500px;
-      }
+                .section-inner {
+                    grid-template-columns: 1fr;
+                    gap: 32px;
+                    max-width: 500px;
+                }
 
-      .section-inner.reverse {
-        direction: ltr;
-      }
+                .section-inner.reverse {
+                    direction: ltr;
+                }
 
-      .section-text {
-        text-align: center;
-        padding: 0;
-      }
+                .section-text {
+                    text-align: center;
+                    padding: 0;
+                }
 
-      .recipe {
-        text-align: left;
-      }
+                .recipe {
+                    text-align: left;
+                }
 
-      .cta-section {
-        padding: 100px 24px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="bg-pattern"></div>
+                .cta-section {
+                    padding: 100px 24px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bg-pattern"></div>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-image">
-      <img src="hero.webp" alt="A carajillo cocktail with Licor 43, moka pot, and coffee beans">
-    </div>
-    <h1>Carajillos are a <span>great drink</span></h1>
-    <div class="poem">
-      <p>In twilight's glow or morning's blink,<br>
-      In buzzing cafes or by the sink,<br>
-      When coffee meets 43's bold ink,<br>
-      A carajillo whispers, "such a great drink."</p>
-    </div>
-    <div class="scroll-hint">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </header>
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-image">
+                <img
+                    src="hero.webp"
+                    alt="A carajillo cocktail with Licor 43, moka pot, and coffee beans"
+                />
+            </div>
+            <h1>Carajillos are a <span>great drink</span></h1>
+            <div class="poem">
+                <p>
+                    In twilight's glow or morning's blink,<br />
+                    In buzzing cafes or by the sink,<br />
+                    When coffee meets 43's bold ink,<br />
+                    A carajillo whispers, "such a great drink."
+                </p>
+            </div>
+            <div class="scroll-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                        d="M12 5v14M5 12l7 7 7-7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </div>
+        </header>
 
-  <!-- Easy to Make -->
-  <section class="content-section">
-    <div class="section-inner fade-in">
-      <div class="section-image">
-        <img src="easy.webp" alt="A beautifully crafted carajillo with foam and coffee beans" loading="lazy">
-      </div>
-      <div class="section-text">
-        <h2>Easy to make</h2>
-        <p>No fancy equipment needed. Just two ingredients and a shaker.</p>
-        <div class="recipe">
-          <p>Shake <strong>2 oz. espresso</strong> with <strong>2 oz. Licor 43</strong> and strain into a glass with ice. Add a coffee bean garnish if you're feeling fancy.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Easy to Make -->
+        <section class="content-section">
+            <div class="section-inner fade-in">
+                <div class="section-image">
+                    <img
+                        src="easy.webp"
+                        alt="A beautifully crafted carajillo with foam and coffee beans"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="section-text">
+                    <h2>Easy to make</h2>
+                    <p>
+                        No fancy equipment needed. Just two ingredients and a
+                        shaker.
+                    </p>
+                    <div class="recipe">
+                        <p>
+                            Shake <strong>2 oz. espresso</strong> with
+                            <strong>2 oz. Licor 43</strong> and strain into a
+                            rocks glass over ice or into a chilled coupe. Add a
+                            coffee bean garnish if you're feeling fancy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Decaf -->
-  <section class="content-section">
-    <div class="section-inner reverse fade-in">
-      <div class="section-image cropped">
-        <img src="decaf.webp" alt="Fresh espresso being pulled from a machine" loading="lazy">
-      </div>
-      <div class="section-text">
-        <h2>Just as good decaf</h2>
-        <p>Use decaf espresso instead of regular to fit your lifestyle. Same smooth taste, no late-night regrets.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Decaf -->
+        <section class="content-section">
+            <div class="section-inner reverse fade-in">
+                <div class="section-image cropped">
+                    <img
+                        src="decaf.webp"
+                        alt="Fresh espresso being pulled from a machine"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="section-text">
+                    <h2>Just as good decaf</h2>
+                    <p>
+                        Use decaf espresso instead of regular to fit your
+                        lifestyle. Same smooth taste, no late-night regrets.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Variations -->
-  <section class="content-section">
-    <div class="section-inner fade-in">
-      <div class="section-image">
-        <img src="variations.webp" alt="Smoking a cocktail glass with herbs and fire" loading="lazy">
-      </div>
-      <div class="section-text">
-        <h2>Endless variations</h2>
-        <p>Add spices, smoke the glass, swap in brandy or tequila. The carajillo is your canvas—go crazy.</p>
-      </div>
-    </div>
-  </section>
+        <!-- Variations -->
+        <section class="content-section">
+            <div class="section-inner fade-in">
+                <div class="section-image">
+                    <img
+                        src="variations.webp"
+                        alt="Smoking a cocktail glass with herbs and fire"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="section-text">
+                    <h2>Not afraid to go crazy</h2>
+                    <p>
+                        Add spices, smoke the glass, or splash in some tequila
+                        or brandy. You can add up to
+                        <strong>2 oz.</strong> of extra liquor and barely
+                        disturb the harmony of the flavors. The carajillo is
+                        your canvas.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="fade-in">
-      <h2>What are you waiting for?</h2>
-    </div>
-  </section>
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="fade-in">
+                <h2>What are you waiting for?</h2>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© Such a Great Drink, Inc.</p>
-  </footer>
+        <!-- Footer -->
+        <footer>
+            <p>© Such a Great Drink, Inc.</p>
+        </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        <script>
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+            );
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
-  <script>
-    window.va = window.va || function () {
-      (window.vaq = window.vaq || []).push(arguments);
-    };
-  </script>
-  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
-</body>
+            document
+                .querySelectorAll(".fade-in")
+                .forEach((el) => observer.observe(el));
+        </script>
+        <script>
+            window.va =
+                window.va ||
+                function () {
+                    (window.vaq = window.vaq || []).push(arguments);
+                };
+        </script>
+        <script
+            defer
+            src="https://cdn.vercel-insights.com/v1/script.js"
+        ></script>
+    </body>
 </html>

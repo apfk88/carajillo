@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-va-script="">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -437,6 +437,19 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <script>
+    window.va = window.va || function () {
+      (window.vaq = window.vaq || []).push(arguments);
+    };
+
+    const analyticsPath = document.documentElement.dataset.vaScript.trim();
+    if (analyticsPath) {
+      const script = document.createElement('script');
+      script.defer = true;
+      script.src = `/${analyticsPath}/script.js`;
+      document.body.appendChild(script);
+    }
   </script>
 </body>
 </html>

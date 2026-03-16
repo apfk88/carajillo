@@ -7,9 +7,7 @@ A beautiful static site celebrating the carajillo cocktail.
 1. Push this repo to GitHub
 2. Import the repo in [Vercel](https://vercel.com/new)
 3. Enable Analytics in the project
-4. Copy the Analytics script path from Vercel's HTML quickstart
-5. Set the `data-va-script` attribute on the root `<html>` tag in `index.html`
-6. Deploy
+4. Deploy
 
 Or use the Vercel CLI:
 
@@ -20,9 +18,7 @@ vercel
 
 ## Vercel Analytics
 
-This site includes the Vercel Analytics bootstrap function and a safe loader for the HTML integration.
-
-To finish setup, replace the empty `data-va-script=""` in `index.html` with the project-specific path Vercel gives you in the Analytics quickstart, then redeploy.
+This site includes the static HTML Vercel Analytics snippet. Once Analytics is enabled in Vercel and the site is deployed there, page views should start flowing automatically.
 
 ## Local Development
 
